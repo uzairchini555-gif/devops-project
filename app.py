@@ -45,7 +45,9 @@ T     Stopped (manual or trace)
 DevOps Tip: 
 R => actively runnign CPU
 S => normal background sleep 
-Z => problem (zombie proccess neeeds cleanup)"""
+Z => problem (zombie proccess neeeds cleanup)
+Q. What is kubernetes ?
+A. kubernetes is a container orchestration tool used to manage, scale and update the applications"""
 
 app.run(host="0.0.0.0", port=5000)
  
