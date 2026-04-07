@@ -50,6 +50,7 @@ curl http://localhost:5000
 5. Optional for live development, mount code as volume:
 ```bash 
 docker run -d -p 5000:5000 -v $(pwd)/app:/app project-app
+```
 ---
 ## **CI/CD Workflow**
 - Located in .github/workflows/main.yml
