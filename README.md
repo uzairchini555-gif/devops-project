@@ -15,7 +15,7 @@ Project-App is a Python Flask application that serves basic content in the brows
 - Easy local deployment
 ---
 ## **Architecture Diagram**
-![CI/CD Architecture] (images/architecture-diagram.png)
+![CI/CD Architecture](images/architecture-diagram.png)
 ---
 ## **Description**
 1. Developer edits code in **local repo**.
