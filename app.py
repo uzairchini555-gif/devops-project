@@ -7,3 +7,6 @@ A. A Linux is an open-source OS (operating system) widely used in servers and cl
 
 app.run(host="0.0.0.0", port=5000)
  
+@app.route("/health")
+daf health():
+	return "OK", 200
