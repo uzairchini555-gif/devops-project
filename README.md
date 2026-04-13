@@ -59,13 +59,13 @@ minikube service project-service
 ```
 📷 Screenshots 
 - Scaling and Running Pods
-![screenshot1](images/dp-ss1)
+![screenshot1](images/dp-ss1.png)
 - Browser output 
-![screenshot2](images/dp-ss2)
+![screenshot2](images/dp-ss2.png)
 - CI/CD Pipeline running 
-![screenshot3](images/dp-ss3)
+![screenshot3](images/dp-ss3.png)
 - Architecture Diagram
-![screenshot4](images/dp-ss4)
+![screenshot4](images/dp-ss4.png)
 ---
 ## What I Learned
 - Differnece between Docker and Kubernetes roles 
