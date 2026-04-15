@@ -1,20 +1,31 @@
-name: CI/CD Pipeline 
+name: CI/CD Pipeline
 on: 
-  push: 
-    branches:
-    - main
+	push:
+		branches:
+		 - main
 jobs:
-  build-on:  
-    runs-on: ubuntu-latest
-    steps: 
-    - name: Checkout Code
-      uses: actions/checkout@v3
-    - name: Login to Docker Hub
-      uses: docker/login-action@v2  
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build Docker Image 
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/project-app .
-    - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/project-app
+	deploy: 
+		runs-on: ubuntu-latest
+		steps:
+		- name: Checkout Code
+		  uses: actions/checkout@v3
+		- name: Login to Docker Hub
+		  uses: docker/login-action@v2
+		  with:
+		    username: ${{ secrets.DOCKERHUB_USERNAME }}
+		    password: ${{ secrets>DOCKERHUB_PASSWORD }}
+		- name: Build Image
+		  run: docker build -t ${{ secrets.DOCKERHUB_USERNAME}}/project-app .
+		- name: Push Image
+		  run: docker push ${{secrets.DOCKERHUB_USERNAME }}/project-app
+		- name: Deploy to EC2
+		  run: applboy/ssh-action@v0.1.6
+		  with: 
+		    host: ${{secrets.EC2_HOST }}
+		    username: ${{secrets.EC2_USER }}
+		    key: ${{ secrets.EC2-SSH_KEY }}
+		    scripts: |
+		      docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project-app
+		      docker stop app || true
+		      docker rm app || true 
+		      docker run -d -p 5000:5000 --name app ${{ secrets.DOCKERHUB_USERNAME }}/project-app
