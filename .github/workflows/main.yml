@@ -28,4 +28,7 @@ jobs:
         docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
         docker stop app || true
         docker rm app || true
-        docker run -d -p 5000:5000 --name app ${{ secrets.DOCKER_USERNAME }}/project-app
+	docker ps -q --filter "publish=5000" | xargs -r docker stop
+	docker ps -aq --filter "publish=5000" | xargs -r docker rm
+	docker run -d -p 5000:5000 --name app --restart=always \ 
+	${{ secrets.DOCKER_USERNAME }}/project-app
