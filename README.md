@@ -1,90 +1,68 @@
-# DevOps Project: Docker + Kubernetes + CI/CD
-This project is a simple Flask-based application that I gradually improved into a more production-like setup using DevOps practises.
-The idea was not just to run an app, but to understand how it moves from code to to a scalable and managed environment.
----
-## 🚀What I Built
-- A Python Flask application
-- Containerized the app using Docker 
-- Deployed it on kubernetes using Minikube 
-- Exposed it using a NodePort service 
-- Implemented scaling (multiple replicas)
-- Tested self-healing by deleting pods 
-- Added a "/health" endpoint for basic health checks 
-- Set up a CI/CD pipeline using Github Actions to automatically build and push Docker image 
+# 🚀 CI/CD Deployment of a Dockerized App on AWS EC2
+This project demonstrates a complete end-to-end DevOps workflow where a containerized application is automatically built, pushed and deployed to a live server.
+## What this project does
+- Builds a  Docker image from application code 
+- Pushes the image to Docker Hub
+- Automatically deploys the latest version to an AWS EC2 instance 
+- Runs the application in a container exposed on port 5000
+
+All of this happens automatically on every push to the main branch.
 ---
 ## Tech Stack
-- Python (Flask)
+- AWS EC2
 - Docker 
-- Kubernetes (Minikube)
 - Github Actions (CI/CD)
 - Docker Hub
 ---
-## How It Works 
-1. Code is pushed to Github 
-2. Github Actions Pipeline triggers automatically 
-3. Docker image is built and pushed to Docker hub 
-4. Kubernetes Deplyment runs the application using container image
-5. Service exposed the app to the browser 
-6. Kubernetes ensuers: 
-	- Pods restarts automatically if they fail (self-healing)
-	- Application can scale using replicas 
+## Workflow
+1. Code is pushed to Github
+2. Github Actions pipeline is triggered 
+3. Docker image is built
+4. Image is pushed to Docker Hub
+5. Old conatiner is stopped and removed 
+7. New container is deployed 
+--- 
+## Deployment Strategy
+This Deployment ensures:
+- Old container don't block new ones 
+- Port conflicts are handled 
+- Application is always running with the latest version
+--- 
+## Challenges I faced
+- SSH authentication issues between Github Actions and EC2
+- Managing '.pem' keys and permissions in WSL 
+- Debugging YAML syntax errors in CI/CD pipeline
+- Handling Docker port conflicts during redeployment 
 ---
-## Key Features 
-### 🔹 Scaling 
-Application can run multiple replicas: 
-```bash 
-kubectl scale deployment project-deployment --replicas=5
+## Output
+The applications is live and accessible via:
+```bash
+https://EC2_Public_IP:5000
 ```
-🔹 Scaling 
-If a Pod is deleted, kuberenets recreates it automatically (self-healing)
-```bash 
-kubectl delete pod <pod_name>
-```
-🔹 Health Check 
-Basic /health cendpoint to verify application status 
 ---
-## ▶ How To Run 
-```bash 
-#Start Minikube
-minikube start
-# Use Minikube Docker 
-eval $(minikube docker-env)
-# Build Image 
-docker build image -t project-app .
-# Apply Kubernetes Config 
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-# Access App
-minikube service project-service
-```
-📷 Screenshots 
-- Scaling and Running Pods
-![screenshot1](images/dp-ss1.png)
-- Browser output 
-![screenshot2](images/dp-ss2.png)
-- CI/CD Pipeline running 
-![screenshot3](images/dp-ss3.png)
-- Architecture Diagram
-![screenshot4](images/dp-ss4.png)
+## What I learned 
+- Setting up real CI/CD pipelines
+- Debugging production-like deployment issues
+- Managing infrastructure and containers together 
+- Importance of automation in DevOps 
 ---
-## What I Learned
-- Differnece between Docker and Kubernetes roles 
-- How Kubernetes manages containers.
-- Importance of health check in production systems
-- How scaling and self-healing works in practise 
-- Basics of CI/CD pipeline using Github Actions 
+## ScreenShots 
+- CI/CD pipeline success
+![CI/CD](images/cicd.png)
+- Running containers on EC2
+![Docker](images/docker.png)
+- Live Application
+![App](images/app.png)
+- Docker Hub Image
+![Dockerhub](images/dockerhub.png)
 ---
 ## Future Improvements
-- Deploy to Cloud Kuberenets (AWS EKS)
-- Add monitoring (prometheus & Grafana)
-- Implement full CD (auto-deploy to cluster)
+- Add Nginx reverse proxy
+- Configure custom domain + HTTPS
+- Migrate deployment to kubernetes (EKS)
 ---
-## 🙌 Final Note 
-This project helped me understand how applications are build, deployed and managed in a real DevOps workflow. Still learning and improving.
----
-## Author 
-**Uzair Munir**
-DevOps Learner | Cloud & Automation Enthusiast
-Github:
-https://github.com/uzairchini555-gif
-Karachi, Pakistan.
+## 💛 Connect 
+If you are working on similar projects or learning DevOps, feel free to connect or share feedback.
+--- 
+## Author
+**Uzair Munir** DevOps Learner | Cloud & Automation Enthusiast</br> Github:</br> https://github.com/uzairchini555-gif Karachi, Pakistan.
