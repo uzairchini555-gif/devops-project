@@ -6,10 +6,10 @@ This project demonstrates a complete end-to-end DevOps workflow where a containe
 - Automatically deploys the latest version to an AWS EC2 instance 
 - Runs the application in a container exposed on port 5000
 
-All of this happens automatically on every push to the main branch.
+All of this happens automatically on every push to the main branch
 ---
 ## Tech Stack
-- AWS EC2
+- AWS EC2 
 - Docker 
 - Github Actions (CI/CD)
 - Docker Hub
@@ -66,3 +66,4 @@ If you are working on similar projects or learning DevOps, feel free to connect 
 --- 
 ## Author
 **Uzair Munir** DevOps Learner | Cloud & Automation Enthusiast</br> Github:</br> https://github.com/uzairchini555-gif Karachi, Pakistan.
+

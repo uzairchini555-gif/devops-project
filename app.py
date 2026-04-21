@@ -2,8 +2,9 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
-	return """This is Uzair, DevOps Enthusiast
-Learning day by day."""
+	return """This is Uzair, DevOps Enthusiast</br>
+Learning day by day</br>
+Today I learned how to add reverse proxy and add domain to the app."""
  
 @app.route("/health")
 def health():
