@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-# 🚀 CI/CD Deployment of a Dockerized App on AWS EC2
-This project demonstrates a complete end-to-end DevOps workflow where a containerized application is automatically built, pushed and deployed to a live server.
-## What this project does
-- Builds a  Docker image from application code 
-- Pushes the image to Docker Hub
-- Automatically deploys the latest version to an AWS EC2 instance 
-- Runs the application in a container exposed on port 5000
-
-All of this happens automatically on every push to the main branch
-=======
 # 🚀 Production-Ready CI/CD Pipeline with Docker, Nginx, Domain & HTTPS on AWS EC2
 ---
 ## Overview
@@ -34,7 +23,6 @@ end
 Nginx -->|SSL Termination| Secure[HTTPS Enabled]
 Users -->|HTTP 80| Redirect[HTTP -> HTTPS Redirect]
 Redirect --> Nginx
->>>>>>> 5cb123d (Added Proxy and Domain HTTPS redirection)
 ---
 ## Tech Stack
 - AWS EC2 
