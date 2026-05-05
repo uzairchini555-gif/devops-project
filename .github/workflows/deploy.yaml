@@ -29,6 +29,6 @@ jobs:
         aws eks update-kubeconfig --region us-east-1 --name uzair-eks-cluster 
     - name: Deploy to Kubernetes
       run: |
-        kubectl tapply -f deployment.yaml
+        kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
         kubectl rollout restart deployment app-deployment 
