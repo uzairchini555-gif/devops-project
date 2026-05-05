@@ -5,7 +5,8 @@ def home():
 	return """This is Uzair, DevOps Enthusiast</br>
 Learning day by day</br>
 One Step ahead</br>
-Today I learned how to add reverse proxy and add domain to the app."""
+Today I learned how to add reverse proxy and add domain to the app
+And I add kubectl EKS in it."""
  
 @app.route("/health")
 def health():

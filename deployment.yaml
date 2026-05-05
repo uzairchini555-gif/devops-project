@@ -1,21 +1,20 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata: 
-  name: project-deployment
-spec:
-  replicas: 2
-  selector:
+  name: app-deployment 
+spec: 
+  replicas: 1
+  selector: 
     matchLabels: 
-      app: project-app
+      app: myapp
   template: 
-    metadata:
+    metadata: 
       labels: 
-        app: project-app
-    spec:
+        app: myapp
+    spec: 
       containers:
-      - name: project-container
-        image: project-app
-        imagePullPolicy: Never
+      - name: app
+        image: uzairchini/project-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
-
