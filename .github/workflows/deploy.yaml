@@ -18,8 +18,6 @@ jobs:
       run: |
          docker build -t ${{ secrets.DOCKER_USERNAME }}/project-app:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/project-app:latest
-          --build-arg VERSION=${{ github.run_number }}
-          --build-arg COMMIT=${{ github.sha }}
     - name: Configure AWS Credentials 
       uses: aws-actions/configure-aws-credentials@v2
       with: 
