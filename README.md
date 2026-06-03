@@ -7,7 +7,7 @@ It goes beyond basic deployment by integrating CI/CD automation and improving th
 - Dockerized application deployed on AWS EKS 
 - Kubernetes Deployment and service configuration 
 - Public access via AWS LoadBalancer 
-- Custom Domain intergration 
+- Custom Domain integration
 - Upgraded UI with a clean and Professional design
 ---
 ## UI Improvement 
@@ -27,7 +27,7 @@ This reflects real-world production thinking - not just functionally, but also p
 Every push to the 'main' branch triggers: 
 1. Source code checkout 
 2. Docker image build 
-3. Push image to Docekr Hub
+3. Push image to Docker Hub
 4. Update kubeconfig for EKS 
 5. Deploy latest version to kubernetes
 
@@ -64,7 +64,7 @@ These challenges helped me understand how production systems behaves and how to 
 ## Screenshots 
 CI/CD Pipeline running 
 ![CI/CD Pipeline](images/CICDpipeline.png)
-Docker Containers Runnign
+Docker Containers Running
 ![Docker containers running](images/docker.png)
 Live Application (Updated UI)
 ![Live Application](images/LiveApp2.png)
